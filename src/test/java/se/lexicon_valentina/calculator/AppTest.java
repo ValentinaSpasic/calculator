@@ -1,38 +1,62 @@
 package se.lexicon_valentina.calculator;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.*;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+public class AppTest {
+	
+	@Test
+	public void addition() {
+		double number1 = 10.0;
+		double number2 = 2.0;
+		
+		double expected = 12.0;
+		
+		double result = App.addition(number1, number2);
+		
+		Assert.assertEquals(expected, result, 0);
+	}
+	
+	@Test
+	public void subtract() {
+		double number1 = 10.0;
+		double number2 = 2.0;
+		
+		double expected = 8.0;
+		
+		double result = App.subtract(number1, number2);
+		
+		Assert.assertEquals(expected, result, 0);
+	}
+	@Test
+	public void multiply() {
+		double number1 = 10.0;
+		double number2 = 2.0;
+		
+		double expected = 20.0;
+		
+		double result = App.multiply(number1, number2);
+		
+		Assert.assertEquals(expected, result, 0);
+	}
+	@Test
+	public void divsion() {
+		double number1 = 10.0;
+		double number2 = 2.0;
+		
+		double expected = 5.0;
+		
+		double result = App.division(number1, number2);
+		
+		Assert.assertEquals(expected, result, 0);
+	}
+	
+	@Test
+	public void divisionByZero_return_0() {
+		double expected = 0;
+		
+		Assert.assertEquals(expected, App.division(10, 0), 0);
+	}
+   
 }
